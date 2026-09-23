@@ -154,7 +154,8 @@ const course = {
           "interpretation": "<strong>Exempel på slutsats:</strong> Grupp 1 hade klart lägst antal grodda plantor, medan grupperna 3–5 låg högre och ganska nära varandra. Hela materialets medelvärde var 120,32 och standardavvikelsen 16,01. Detta är en beskrivning av materialet, inte automatiskt ett bevis på en kausal effekt.",
           "practice": "Skriv tre meningar om nivå, spridning och skillnader mellan grupper."
         }
-      ],},
+      ]
+    },
     "regression": {
       "number": "02",
       "title": "Enkel linjär regression i R",
@@ -296,7 +297,8 @@ const course = {
           "interpretation": "<strong>Kom ihåg:</strong> En modell är en förenklad beskrivning. Den kan vara användbar även om den inte förklarar all variation, men slutsatsen måste bygga på både siffror, diagram och rimliga modellantaganden.",
           "practice": "Beskriv eventuella mönster i residualdiagrammet."
         }
-      ],},
+      ]
+    },
     "inference": {
       "number": "03",
       "title": "Inferens i R",
@@ -407,7 +409,8 @@ const course = {
           "interpretation": "<strong>Exempel:</strong> Stickprovet ger ett medelvärde på 174,22 cm. Ett 95-procentigt KI för populationsmedelvärdet är 173,01–175,43 cm. Testet mot 175 cm ger p = 0,202, så materialet ger inte tillräckligt stark evidens för en skillnad vid 5 % nivå.",
           "practice": "Välj en fråga och skriv en slutsats som innehåller skattning, osäkerhet och antaganden."
         }
-      ],},
+      ]
+    },
     "simulation": {
       "number": "04",
       "title": "Simulering",
@@ -463,6 +466,11 @@ const course = {
           "code": "summary(Z5)\nquantile(Z5, c(0.025, 0.5, 0.975))\nset.seed(123)",
           "output": "summary() och quantile() ger en snabb bild av centrum, spridning och percentiler."
         }
+      ],
+      "quick": [
+        "Slump kan upprepas med set.seed().",
+        "Medelvärden stabiliseras när antalet observationer ökar.",
+        "Välj rätt fördelning för situationen."
       ]
     }
   },
