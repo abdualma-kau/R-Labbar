@@ -26,7 +26,7 @@ const course = {
           "code": "install.packages(\"readxl\")  # bara första gången\nlibrary(readxl)\nTallsådd <- read_excel(file.choose())\nhead(Tallsådd)\nstr(Tallsådd)\nsummary(Tallsådd)",
           "output": "# A tibble: 6 × 3\n      Y     B     A\n  <dbl> <dbl> <dbl>\n1   100     1     1\n2   111     1     2\n3   113     1     3\n4    91     1     4\n5    74     1     5\n6   108     2     1\n\n# Y är numerisk. B och A är gruppkoder.\n# Det finns 25 observationer.",
           "interpretation": "<strong>Så läser du detta:</strong> Y är resultatvariabeln, B är behandlingsgruppen och A är raden i försöket. Innan du tolkar något måste du veta vad varje kolumn betyder.",
-          "note": "Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
+          "note": "read_excel() är en R-funktion från paketet readxl, inte en fil som ska laddas upp. Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
           "quiz": {
             "q": "Vad är Y i detta försök?",
             "options": [
@@ -214,7 +214,7 @@ const course = {
               "25.4"
             ]
           ],
-          "note": "Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
+          "note": "read_excel() är en R-funktion från paketet readxl, inte en fil som ska laddas upp. Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
           "practice": "Kontrollera antalet personer med nrow(Längder) och gruppstorlekarna med table(Längder$Kön)."
         },
         {
@@ -325,7 +325,7 @@ const course = {
           "code": "install.packages(\"readxl\")  # bara första gången\nlibrary(readxl)\nLängder <- read_excel(file.choose())\nhead(Längder)\nstr(Längder)\nsummary(Längder)\n\n# Exempel:\n# H0: μ = 175 cm\n# H1: μ ≠ 175 cm",
           "output": "n = 200\nMedellängd = 174.22 cm\nStandardavvikelse = 8.61 cm\n\nParameter: populationens medellängd μ",
           "interpretation": "<strong>Tänk först:</strong> μ är populationens okända medellängd. Stickprovets medelvärde 174,22 cm är en skattning av μ. Inferens handlar om osäkerheten i den skattningen.",
-          "note": "Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session. För inferens behöver observationerna vara oberoende och urvalet relevant för populationen. Urvalsmetoden är inte beskriven i filen, så populationstolkningarna här är övningar under dessa antaganden.",
+          "note": "read_excel() är en R-funktion från paketet readxl, inte en fil som ska laddas upp. Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session. För inferens behöver observationerna vara oberoende och urvalet relevant för populationen. Urvalsmetoden är inte beskriven i filen, så populationstolkningarna här är övningar under dessa antaganden.",
           "practice": "Vilken population vill du uttala dig om, och vet du hur personerna valdes ut?"
         },
         {
