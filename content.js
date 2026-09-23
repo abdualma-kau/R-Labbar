@@ -26,7 +26,7 @@ const course = {
           "code": "install.packages(\"readxl\")  # bara första gången\nlibrary(readxl)\nTallsådd <- read_excel(file.choose())\nhead(Tallsådd)\nstr(Tallsådd)\nsummary(Tallsådd)",
           "output": "# A tibble: 6 × 3\n      Y     B     A\n  <dbl> <dbl> <dbl>\n1   100     1     1\n2   111     1     2\n3   113     1     3\n4    91     1     4\n5    74     1     5\n6   108     2     1\n\n# Y är numerisk. B och A är gruppkoder.\n# Det finns 25 observationer.",
           "interpretation": "<strong>Så läser du detta:</strong> Y är resultatvariabeln, B är behandlingsgruppen och A är raden i försöket. Innan du tolkar något måste du veta vad varje kolumn betyder.",
-          "note": "En filväljare öppnas. Välj labbens nedladdade Excel-fil. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
+          "note": "Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
           "quiz": {
             "q": "Vad är Y i detta försök?",
             "options": [
@@ -154,9 +154,7 @@ const course = {
           "interpretation": "<strong>Exempel på slutsats:</strong> Grupp 1 hade klart lägst antal grodda plantor, medan grupperna 3–5 låg högre och ganska nära varandra. Hela materialets medelvärde var 120,32 och standardavvikelsen 16,01. Detta är en beskrivning av materialet, inte automatiskt ett bevis på en kausal effekt.",
           "practice": "Skriv tre meningar om nivå, spridning och skillnader mellan grupper."
         }
-      ],
-      "duration": "35–45 min"
-    },
+      ],},
     "regression": {
       "number": "02",
       "title": "Enkel linjär regression i R",
@@ -215,7 +213,7 @@ const course = {
               "25.4"
             ]
           ],
-          "note": "En filväljare öppnas. Välj labbens nedladdade Excel-fil. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
+          "note": "Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
           "practice": "Kontrollera antalet personer med nrow(Längder) och gruppstorlekarna med table(Längder$Kön)."
         },
         {
@@ -298,9 +296,7 @@ const course = {
           "interpretation": "<strong>Kom ihåg:</strong> En modell är en förenklad beskrivning. Den kan vara användbar även om den inte förklarar all variation, men slutsatsen måste bygga på både siffror, diagram och rimliga modellantaganden.",
           "practice": "Beskriv eventuella mönster i residualdiagrammet."
         }
-      ],
-      "duration": "45–60 min"
-    },
+      ],},
     "inference": {
       "number": "03",
       "title": "Inferens i R",
@@ -327,7 +323,7 @@ const course = {
           "code": "install.packages(\"readxl\")  # bara första gången\nlibrary(readxl)\nLängder <- read_excel(file.choose())\nhead(Längder)\nstr(Längder)\nsummary(Längder)\n\n# Exempel:\n# H0: μ = 175 cm\n# H1: μ ≠ 175 cm",
           "output": "n = 200\nMedellängd = 174.22 cm\nStandardavvikelse = 8.61 cm\n\nParameter: populationens medellängd μ",
           "interpretation": "<strong>Tänk först:</strong> μ är populationens okända medellängd. Stickprovets medelvärde 174,22 cm är en skattning av μ. Inferens handlar om osäkerheten i den skattningen.",
-          "note": "En filväljare öppnas. Välj labbens nedladdade Excel-fil. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session. För inferens behöver observationerna vara oberoende och urvalet relevant för populationen. Urvalsmetoden är inte beskriven i filen, så populationstolkningarna här är övningar under dessa antaganden.",
+          "note": "Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session. För inferens behöver observationerna vara oberoende och urvalet relevant för populationen. Urvalsmetoden är inte beskriven i filen, så populationstolkningarna här är övningar under dessa antaganden.",
           "practice": "Vilken population vill du uttala dig om, och vet du hur personerna valdes ut?"
         },
         {
@@ -411,8 +407,63 @@ const course = {
           "interpretation": "<strong>Exempel:</strong> Stickprovet ger ett medelvärde på 174,22 cm. Ett 95-procentigt KI för populationsmedelvärdet är 173,01–175,43 cm. Testet mot 175 cm ger p = 0,202, så materialet ger inte tillräckligt stark evidens för en skillnad vid 5 % nivå.",
           "practice": "Välj en fråga och skriv en slutsats som innehåller skattning, osäkerhet och antaganden."
         }
-      ],
-      "duration": "45–60 min"
+      ],},
+    "simulation": {
+      "number": "04",
+      "title": "Simulering",
+      "short": "Slump och fördelningar",
+      "lede": "Se hur slump, medelvärden och sannolikhetsfördelningar beter sig genom upprepade försök i R.",
+      "file": "simulation.R",
+      "steps": [
+        {
+          "title": "Slumpa ett tärningskast",
+          "purpose": "Börja med 10 000 kast och kontrollera om utfallet blir ungefär jämnt mellan 1 och 6.",
+          "code": "set.seed(123)\nX <- sample(1:6, size = 10000, replace = TRUE)\ntable(X)\nprop.table(table(X))",
+          "output": "Varje sida förekommer nära 1/6 (cirka 16,7 %). set.seed() gör försöket reproducerbart."
+        },
+        {
+          "title": "Medelvärdet av två tärningar",
+          "purpose": "Jämför enskilda kast med medelvärdet av två kast.",
+          "code": "X1 <- sample(1:6, 10000, replace = TRUE)\nX2 <- sample(1:6, 10000, replace = TRUE)\nM2 <- (X1 + X2) / 2\nmean(M2)\nhist(M2)",
+          "output": "Medelvärdet ligger nära 3,5. Fördelningen samlas mer kring mitten än för en enda tärning."
+        },
+        {
+          "title": "Fler tärningar ger stabilare medelvärde",
+          "purpose": "Öka antalet tärningar och se hur variationen minskar.",
+          "code": "n <- 10\nkast <- replicate(n, sample(1:6, 10000, replace = TRUE))\nMn <- rowMeans(kast)\nmean(Mn)\nsd(Mn)\nhist(Mn)",
+          "output": "Medelvärdet ligger fortfarande nära 3,5, men standardavvikelsen är mindre när fler tärningar ingår."
+        },
+        {
+          "title": "Binomialfördelningen",
+          "purpose": "Simulera antal träffar när 100 försök har sannolikheten 0,2 för träff.",
+          "code": "Z1 <- rbinom(10000, size = 100, prob = 0.2)\nmean(Z1)\nsd(Z1)\nhist(Z1)",
+          "output": "Medelvärdet ligger nära 20, eftersom 100 · 0,2 = 20."
+        },
+        {
+          "title": "Hypergeometrisk fördelning",
+          "purpose": "Simulera dragning utan återläggning från en ändlig population.",
+          "code": "Z2 <- rhyper(nn = 10000, m = 120, n = 480, k = 100)\nmean(Z2)\nhist(Z2)",
+          "output": "Här betyder m antal framgångar, n antal misslyckanden och k antal dragningar."
+        },
+        {
+          "title": "Poissonfördelningen",
+          "purpose": "Simulera ett antal händelser med väntevärde lambda = 5.",
+          "code": "Z3 <- rpois(10000, lambda = 5)\nmean(Z3)\nvar(Z3)\nhist(Z3)",
+          "output": "För Poissonfördelningen ligger både medelvärde och varians nära 5."
+        },
+        {
+          "title": "Normalfördelningen",
+          "purpose": "Skapa normalfördelade observationer och jämför centrum och spridning.",
+          "code": "Z4 <- rnorm(10000, mean = 0, sd = 1)\nZ5 <- rnorm(10000, mean = 180, sd = 7)\nmean(Z4); sd(Z4)\nmean(Z5); sd(Z5)\nhist(Z5)",
+          "output": "Z4 har ungefär medelvärde 0 och standardavvikelse 1. Z5 har ungefär medelvärde 180 och standardavvikelse 7."
+        },
+        {
+          "title": "Sammanfatta en simulering",
+          "purpose": "Använd samma arbetsflöde varje gång: kontrollera, sammanfatta och visualisera.",
+          "code": "summary(Z5)\nquantile(Z5, c(0.025, 0.5, 0.975))\nset.seed(123)",
+          "output": "summary() och quantile() ger en snabb bild av centrum, spridning och percentiler."
+        }
+      ]
     }
   },
   "tallSadd": [
