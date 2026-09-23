@@ -417,6 +417,7 @@ const course = {
       "short": "Slump och fördelningar",
       "lede": "Se hur slump, medelvärden och sannolikhetsfördelningar beter sig genom upprepade försök i R.",
       "file": "simulation.R",
+      "fileUrl": "simulation.R",
       "steps": [
         {
           "title": "Slumpa ett tärningskast",
