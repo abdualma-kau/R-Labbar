@@ -23,10 +23,10 @@ const course = {
         {
           "title": "Importera och kontrollera data",
           "purpose": "Först vill vi veta att data har kommit in rätt. Kontrollera de första raderna, variabeltyperna och en snabb sammanfattning.",
-          "code": "install.packages(\"readxl\")  # bara första gången\nlibrary(readxl)\nTallsådd <- read_excel(file.choose())\nhead(Tallsådd)\nstr(Tallsådd)\nsummary(Tallsådd)",
+          "code": "# I RStudio: Environment → Import Dataset → From Excel...\n# Välj Tallsådd.xlsx och döp dataobjektet till Tallsådd\nhead(Tallsådd)\nstr(Tallsådd)\nsummary(Tallsådd)",
           "output": "# A tibble: 6 × 3\n      Y     B     A\n  <dbl> <dbl> <dbl>\n1   100     1     1\n2   111     1     2\n3   113     1     3\n4    91     1     4\n5    74     1     5\n6   108     2     1\n\n# Y är numerisk. B och A är gruppkoder.\n# Det finns 25 observationer.",
           "interpretation": "<strong>Så läser du detta:</strong> Y är resultatvariabeln, B är behandlingsgruppen och A är raden i försöket. Innan du tolkar något måste du veta vad varje kolumn betyder.",
-          "note": "read_excel() är en R-funktion från paketet readxl, inte en fil som ska laddas upp. Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
+          "note": "Importera data direkt i RStudio: öppna panelen Environment, välj Import Dataset och sedan From Excel. Välj Tallsådd.xlsx och kontrollera att dataobjektet heter Tallsådd.",
           "quiz": {
             "q": "Vad är Y i detta försök?",
             "options": [
@@ -179,7 +179,7 @@ const course = {
         {
           "title": "Importera och kontrollera data",
           "purpose": "Kontrollera att variablerna har rätt namn och rätt typ innan du anpassar en modell.",
-          "code": "install.packages(\"readxl\")  # bara första gången\nlibrary(readxl)\nLängder <- read_excel(file.choose())\nhead(Längder)\nstr(Längder)\nsummary(Längder)",
+          "code": "# I RStudio: Environment → Import Dataset → From Excel...\n# Välj Längder.xlsx och döp dataobjektet till Längder\nhead(Längder)\nstr(Längder)\nsummary(Längder)",
           "output": "# A tibble: 6 × 3\n  Längd_cm Kön    Fotlängd_cm\n     179.0 Man          26.1\n     178.8 Man          26.8\n     179.2 Man          26.7\n     184.9 Man          27.4\n     179.1 Man          25.4\n     169.5 Man          24.0\n\n# 200 observationer: 100 kvinnor och 100 män.",
           "interpretation": "<strong>Rollerna i modellen:</strong> Längd_cm är den oberoende variabeln x. Fotlängd_cm är den beroende variabeln y. Kön är en gruppvariabel som vi senare använder för jämförelse.",
           "table": [
@@ -214,7 +214,7 @@ const course = {
               "25.4"
             ]
           ],
-          "note": "read_excel() är en R-funktion från paketet readxl, inte en fil som ska laddas upp. Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session.",
+          "note": "Importera data direkt i RStudio: öppna panelen Environment, välj Import Dataset och sedan From Excel. Välj Längder.xlsx och kontrollera att dataobjektet heter Längder.",
           "practice": "Kontrollera antalet personer med nrow(Längder) och gruppstorlekarna med table(Längder$Kön)."
         },
         {
@@ -322,10 +322,10 @@ const course = {
         {
           "title": "Importera och formulera frågan",
           "purpose": "Börja med att identifiera population, stickprov, parameter och vilken nollhypotes som ska testas.",
-          "code": "install.packages(\"readxl\")  # bara första gången\nlibrary(readxl)\nLängder <- read_excel(file.choose())\nhead(Längder)\nstr(Längder)\nsummary(Längder)\n\n# Exempel:\n# H0: μ = 175 cm\n# H1: μ ≠ 175 cm",
+          "code": "# I RStudio: Environment → Import Dataset → From Excel...\n# Välj Längder.xlsx och döp dataobjektet till Längder\nhead(Längder)\nstr(Längder)\nsummary(Längder)\n\n# Exempel:\n# H0: μ = 175 cm\n# H1: μ ≠ 175 cm",
           "output": "n = 200\nMedellängd = 174.22 cm\nStandardavvikelse = 8.61 cm\n\nParameter: populationens medellängd μ",
           "interpretation": "<strong>Tänk först:</strong> μ är populationens okända medellängd. Stickprovets medelvärde 174,22 cm är en skattning av μ. Inferens handlar om osäkerheten i den skattningen.",
-          "note": "read_excel() är en R-funktion från paketet readxl, inte en fil som ska laddas upp. Exempel på file.choose(): read_excel(file.choose()). När raden körs öppnas en filväljare. Välj labbens nedladdade Excel-fil där. install.packages() installerar paketet en gång; library() laddar det varje gång du startar en ny R-session. För inferens behöver observationerna vara oberoende och urvalet relevant för populationen. Urvalsmetoden är inte beskriven i filen, så populationstolkningarna här är övningar under dessa antaganden.",
+          "note": "Importera data direkt i RStudio: öppna panelen Environment, välj Import Dataset och sedan From Excel. Välj Längder.xlsx och kontrollera att dataobjektet heter Längder. För inferens behöver observationerna vara oberoende och urvalet relevant för populationen. Urvalsmetoden är inte beskriven i filen, så populationstolkningarna här är övningar under dessa antaganden.",
           "practice": "Vilken population vill du uttala dig om, och vet du hur personerna valdes ut?"
         },
         {
